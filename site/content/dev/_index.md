@@ -1,6 +1,8 @@
 ---
 title: Gem of Wallo comment c'est fait?
 ---
+test
+
 Pour ceux qui ont joué et qui souhaiteraient savoir comment le jeu a été développé, j'ai décidé d'expliquer le design de programmation utilisé.  
 
 Le jeu repose essentiellement sur le design MVC. Je n'expliquerai pas ici qu'est-ce qu'un design MVC mais comment je l'ai appliqué à ce projet.  
@@ -24,8 +26,6 @@ les actions utilisateurs et la logique du jeu
 * l'item qui y sera looter
 * option de verrouillage de la case (dans le cas où on tombe sur un ennemi, la case est verrouillée on ne peut plus que reculer)
 
-
-
 **Les dialogues:**\
 Ils sont stockés sous format XML, et un peu à la manière d'une vue html, dans un fichier séparé correspondant à une action du contrôleur. Par exemple: quand l'utilisateur parle au loup, c'est le fichier de dialogue _loup_conversation.xml_ qui sera chargé
 
@@ -39,8 +39,6 @@ C'est une table sql, liée à la carte du monde (pour la partie en cours) et à 
 * la position XY actuelle du joueur sur la carte
 * la position XY précédente du joueur (utilisée au cas ou il fait reculer quand il est coincé devant un monstre)
 * la question à laquelle le joueur est en train de répondre (si il y en a une)
-
-
 
 **Les item/objets:**\
 table sql, très simple: type de l'objet et un lien vers l'utilisateur
@@ -58,12 +56,12 @@ Comme c'est _gameController_ qui a appelé _foretController_, il récupère le c
 
 Alors pourquoi j'ai fait comme ça? D'avoir un contrôleur qui imbrique d'autres contrôleurs et pas simplement 1 page html = 1 contrôleur. Pour la simple raison que je ne voulais pas que le joueur puisse savoir à l'avance (en lisant l'url) sur quel type de case il allait tomber. Par exemple si il choisissait d'aller à gauche, il aurait vu sur l'url de la flêche gauche "foret.php". Et aussi parce que je ne voulais pas avoir un géant fichier php contrôleur impossible à maintenir.  
 
-Pour être sûr de ne pas me mélanger les pinceaux entre _gameController_ et celui de la case, les deux contrôleurs n'utilise pas le même nom de paramètre GET. _gameController_ répond à _**action**_ (ex: _&action=reculer_, _&action=right_) tandis que les contrôleurs des cases répondent à _**decision**_ (_&decision=combattre_, _&decision=discuter_).  
+Pour être sûr de ne pas me mélanger les pinceaux entre _gameController_ et celui de la case, les deux contrôleurs n'utilise pas le même nom de paramètre GET. _gameController_ répond à **_action_** (ex: _&action=reculer_, _&action=right_) tandis que les contrôleurs des cases répondent à **_decision_** (_&decision=combattre_, _&decision=discuter_).  
 
 **Donc pour les actions utilisateurs:**  
 
-* via le paramètre GET _**action**_, les déplacements sont gérés par _gameController_ (_action=left, action=right, action=reculer_)
-* via le paramètre GET _**decision**_ (ou POST d'ailleurs), ce sont des actions propres à l'endroit où le joueur se trouve et donc c'est le sous contrôleur qui s'en charger (_foretController, loupController_, etc...)
+* via le paramètre GET **_action_**, les déplacements sont gérés par _gameController_ (_action=left, action=right, action=reculer_)
+* via le paramètre GET **_decision_** (ou POST d'ailleurs), ce sont des actions propres à l'endroit où le joueur se trouve et donc c'est le sous contrôleur qui s'en charger (_foretController, loupController_, etc...)
 * si il n'y a pas de paramètre GET, c'est la fonction index de _gameController_ qui est appelé (qui charge le "sous contrôleur" adapté qui lui-même appel sa propre fonction _index_)
 
 En ce qui concèrne les déplacements (via _action=left, action=right, action=up, action=down_), la fonction correspondante de _gameControlleur_ est appelé (_right(), left()_, etc...). Cette fonction déplace le joueur sur la map (changement de la position XY dans la table _USER_) et puis ensuite appelle la fonction _index_ de _gameController_ qui regarde où se trouve le joueur sur la carte et puis charge le contrôleur adapté. En clair tout passe et repasse par la fonction index de gameControlleur.  
