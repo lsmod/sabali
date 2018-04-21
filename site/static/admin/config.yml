@@ -10,7 +10,7 @@ collections: # A list of collections the CMS should be able to edit
     files:
       - file: "site/content/_index.md"
         label: "Page d'accueil"
-        name: "home"
+        name: "index"
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Body, name: body, widget: markdown}
