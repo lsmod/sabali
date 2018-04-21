@@ -6,10 +6,12 @@ Pour ceux qui ont joué et qui souhaiteraient savoir comment le jeu a été dév
 Le jeu repose essentiellement sur le design MVC. Je n'expliquerai pas ici qu'est-ce qu'un design MVC mais comment je l'ai appliqué à ce projet.  
 
 **Modèle:**\
-Les données (dialogues, liste des items, vie des personnages, les questions-réponses etc) 
+Les données (dialogues, liste des items, vie des personnages, les questions-réponses etc)
 
 **Vue:**\
-l'affichage (portion de page html) **Contrôleur:**\
+l'affichage (portion de page html)
+
+**Contrôleur:**\
 les actions utilisateurs et la logique du jeu
 
 ### Données du jeu:

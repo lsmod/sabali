@@ -1,5 +1,5 @@
 ---
-title: "Gem of Wallo comment c'est fait?"
+title: "Sabali Studio"
 ---
 Bienvenue, sur le site du Sabali studio
 Viens jouer à :
