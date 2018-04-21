@@ -1,6 +1,8 @@
 ---
 title: Gem of Wallo comment c'est fait?
 ---
+test
+
 Pour ceux qui ont joué et qui souhaiteraient savoir comment le jeu a été développé, j'ai décidé d'expliquer le design de programmation utilisé.  
 
 Le jeu repose essentiellement sur le design MVC. Je n'expliquerai pas ici qu'est-ce qu'un design MVC mais comment je l'ai appliqué à ce projet.  
