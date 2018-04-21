@@ -1,9 +1,9 @@
 ---
-title: "Home"
+title: Home
 ---
-**Bienvenue, sur le site du Sabali studio**\
-==================
+# **Bienvenue, sur le site du Sabali studio**\
+
 **Viens jouer à :**\
-![Gem of Wallo](/wallo-presentation-alpha.png)
-la dernière création du studio,
+[![Gem of Wallo](/wallo-presentation-alpha.png)](http://gemofwallo.com)
+la dernière [création](http://gemofwallo.com) du studio,
 réalisée par MrLoisir, Chnuk et Arno
