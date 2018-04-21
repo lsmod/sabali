@@ -1,5 +1,5 @@
 ---
-title: "Sabali Studio"
+title: "Home"
 ---
 **Bienvenue, sur le site du Sabali studio**\
 ==================
