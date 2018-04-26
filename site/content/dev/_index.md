@@ -87,10 +87,10 @@ Admettons que le joueur soit dans la forêt et ben, j'ai mon fichier _foretContr
 _loupControlleur_ répond aux actions suivante: index, conversation, combattre, attaquer, donner, epee, torche, guitare:  
 
 * index (quand on arrive sur la case): le dialogue _loup.xml_ est chargé et puis la vue _loup.php_ est créé et pour finir _caseModel_ verrouille la case (l’ennemi bloque la route du joueur)
-* conversation: là, c'est _loup_conversation.xml_ qui est chargé et la vue _loup\_conversation.php_
+* conversation: là, c'est _loup\_conversation.xml_ qui est chargé et la vue _loup\_conversation.php_
 * combattre: (affiche la liste des personnage et leur pv) même principe mais en plus on transmet à la vue les pv des personnages récupérée via _userModel_
 * attaquer: idem, mais cette fois ci le contrôleur met à jour les pv du joueur et de la case (celle du loup)
-* donner: _loup\_donner.xml_ pour le dialogue, _loup_donner.php_ pour la vue et le modèle _userModel_ met à jour l'or que le joueur possède
+* donner: _loup\_donner.xml_ pour le dialogue, _loup\_donner.php_ pour la vue et le modèle _userModel_ met à jour l'or que le joueur possède
 * epee: _objectModel_ vérifie que l'utilisateur possède bien l'épée, si oui le dialogue _loup\_epee.xml_ est chargé ainsi que la vue _loup\_epee.php_
 * guitare: même principe
 * torche: même principe, mais en plus la case est déverrouillée (puisque la torche fait fuir le loup) et la vue _loup\_torche.php_ affiche donc les flèches pour choisir où aller ensuite
