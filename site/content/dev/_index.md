@@ -24,8 +24,8 @@ les actions utilisateurs et la logique du jeu
 * l'item qui y sera looter
 * option de verrouillage de la case (dans le cas où on tombe sur un ennemi, la case est verrouillée on ne peut plus que reculer)
 
-
-
+\
+\
 **Les dialogues:**\
 Ils sont stockés sous format XML, et un peu à la manière d'une vue html, dans un fichier séparé correspondant à une action du contrôleur. Par exemple: quand l'utilisateur parle au loup, c'est le fichier de dialogue _loup_conversation.xml_ qui sera chargé
 
