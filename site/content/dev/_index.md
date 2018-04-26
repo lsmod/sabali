@@ -25,7 +25,6 @@ les actions utilisateurs et la logique du jeu
 * option de verrouillage de la case (dans le cas où on tombe sur un ennemi, la case est verrouillée on ne peut plus que reculer)
 
 \
-\
 **Les dialogues:**\
 Ils sont stockés sous format XML, et un peu à la manière d'une vue html, dans un fichier séparé correspondant à une action du contrôleur. Par exemple: quand l'utilisateur parle au loup, c'est le fichier de dialogue _loup_conversation.xml_ qui sera chargé
 
@@ -39,7 +38,7 @@ C'est une table sql, liée à la carte du monde (pour la partie en cours) et à 
 * la position XY actuelle du joueur sur la carte
 * la position XY précédente du joueur (utilisée au cas ou il fait reculer quand il est coincé devant un monstre)
 * la question à laquelle le joueur est en train de répondre (si il y en a une)
-
+\
 **Les item/objets:**\
 table sql, très simple: type de l'objet et un lien vers l'utilisateur
 
@@ -50,8 +49,8 @@ Maintenant qu'on a les données et qu'on sait que c'est le design MVC qui est ut
 Admettons que l'utilisateur ait une session cookie valable, qu'il ait lancé une partie et que la carte du monde ait été générée. Dans ce cas il se trouve sur la page _game.php_ qui utilise le contrôleur _gameControlleur_. Dans le design que j'ai utilisé _gameControlleur_ vérifie que la session est valable (cookies, carte créé, etc) si ce n'est pas le cas un message est affiché et l'utilisateur est redirigé vers l'accueil.  
 
 Si tout est bon, mon contrôleur, va chercher dans la base de données la position du joueur sur la carte et selon le type de case sur lequel il se trouve, va charger le contrôleur adapté.\
-Par exemple, si il est dans la foret c'est _foretController_qui sera chargé._\
-_Ensuite c'est _foretController_ qui va gérer l'action utilisateur, chercher les données et les transmettre à la vue adaptée.\
+Par exemple, si il est dans la foret c'est _foretController_ qui sera chargé.\
+Ensuite c'est _foretController_ qui va gérer l'action utilisateur, chercher les données et les transmettre à la vue adaptée.\
 Comme c'est _gameController_ qui a appelé _foretController_, il récupère le contenu de la vue de _foretController_ pour en faire sa propre vue.  
 
 Alors pourquoi j'ai fait comme ça? D'avoir un contrôleur qui imbrique d'autres contrôleurs et pas simplement 1 page html = 1 contrôleur. Pour la simple raison que je ne voulais pas que le joueur puisse savoir à l'avance (en lisant l'url) sur quel type de case il allait tomber. Par exemple si il choisissait d'aller à gauche, il aurait vu sur l'url de la flêche gauche "foret.php". Et aussi parce que je ne voulais pas avoir un géant fichier php contrôleur impossible à maintenir.  
@@ -88,13 +87,13 @@ Admettons que le joueur soit dans la forêt et ben, j'ai mon fichier _foretContr
 _loupControlleur_ répond aux actions suivante: index, conversation, combattre, attaquer, donner, epee, torche, guitare:  
 
 * index (quand on arrive sur la case): le dialogue _loup.xml_ est chargé et puis la vue _loup.php_ est créé et pour finir _caseModel_ verrouille la case (l’ennemi bloque la route du joueur)
-* conversation: là, c'est _loup_conversation.xml_ qui est chargé et la vue _loup_conversation.php_
+* conversation: là, c'est _loup_conversation.xml_ qui est chargé et la vue _loup\_conversation.php_
 * combattre: (affiche la liste des personnage et leur pv) même principe mais en plus on transmet à la vue les pv des personnages récupérée via _userModel_
 * attaquer: idem, mais cette fois ci le contrôleur met à jour les pv du joueur et de la case (celle du loup)
-* donner: _loup_donner.xml_ pour le dialogue, _loup_donner.php_ pour la vue et le modèle _userModel_ met à jour l'or que le joueur possède
-* epee: _objectModel_ vérifie que l'utilisateur possède bien l'épée, si oui le dialogue _loup_epee.xml_ est chargé ainsi que la vue _loup_epee.php_
+* donner: _loup\_donner.xml_ pour le dialogue, _loup_donner.php_ pour la vue et le modèle _userModel_ met à jour l'or que le joueur possède
+* epee: _objectModel_ vérifie que l'utilisateur possède bien l'épée, si oui le dialogue _loup\_epee.xml_ est chargé ainsi que la vue _loup\_epee.php_
 * guitare: même principe
-* torche: même principe, mais en plus la case est déverrouillée (puisque la torche fait fuir le loup) et la vue _loup_torche.php_ affiche donc les flèches pour choisir où aller ensuite
+* torche: même principe, mais en plus la case est déverrouillée (puisque la torche fait fuir le loup) et la vue _loup\_torche.php_ affiche donc les flèches pour choisir où aller ensuite
 
 Voilà comment c'est fait pour les "ennemis". Pour le coffre c'est presque pareil sauf que la case coffre n'est pas verrouillée.  
 
