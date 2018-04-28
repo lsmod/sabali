@@ -26,7 +26,7 @@ les actions utilisateurs et la logique du jeu
 
 \
 **Les dialogues:**\
-Ils sont stockés sous format XML, et un peu à la manière d'une vue html, dans un fichier séparé correspondant à une action du contrôleur. Par exemple: quand l'utilisateur parle au loup, c'est le fichier de dialogue _loup_conversation.xml_ qui sera chargé
+Ils sont stockés sous format XML, et un peu à la manière d'une vue html, dans un fichier séparé correspondant à une action du contrôleur. Par exemple: quand l'utilisateur parle au loup, c'est le fichier de dialogue _loup\_conversation.xml_ qui sera chargé
 
 **Les questions / réponses:**\
 comme la carte du monde, c'est une table SQL comprenant la question posée et la liste des choix/réponses possibles
